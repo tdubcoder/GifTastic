@@ -1,6 +1,8 @@
-/* .container{
-	padding-top: 5%;
-} */
+body{
+	background-image: url(/assets/images/background.png);
+  	background-repeat: no-repeat;
+  	background-size: auto;
+}
 
 .jumbotron{
 	/*padding: 1%;*/
@@ -15,4 +17,8 @@
 
 div{
 	margin-bottom: 2%;
+}
+
+#movie-buttons{
+	padding-bottom: 10px;
 }

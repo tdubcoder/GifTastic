@@ -17,16 +17,16 @@ $(document).ready(function () {
 		var movie = $("#movie-input").val().trim();
 		movies.push(movie);
 		renderButtons();
-		return;
 	});
 
 
 	// Getting gifs from api... onto html
-	$("button").on("click", function () {
+	function getGifs () {
 		var movie = $(this).attr("data-movie");
 		var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
 			movie + "&api_key=OoeO4iwPkmYgNpBBdVyPU6NnkXFPCP7J"
 
+	
 		$.ajax({
 			url: queryURL,
 			method: "GET"
@@ -48,8 +48,9 @@ $(document).ready(function () {
 				$("#movies").append(movieDiv);
 			}
 		});
-	});
+	};
 
+	//if else statements to change the current state of the images
 	function changeState(){
 		var state = $(this).attr("data-state");
 		var animateImage = $(this).attr("data-animate");
@@ -66,16 +67,7 @@ $(document).ready(function () {
 		}
 	}
 
-	// $("img").on("click", function() {
-	// 	console.log("click worked!");
-	// 	var src = movieImg.attr(src);
-	// 	src = src.substring(0, src.length - 10);
-	// 	src += ".url";
-	// 	console.log(src);
-	// 	movieImg.attr("src", src);
-	// });
 
-	// $(document).on("click", "#input", displayImg);
 	$(document).on("click", ".gif", changeState);
-
+	$(document).on("click", "button", getGifs);
 });
